@@ -20,6 +20,8 @@ $ModuleTemplatePath = Get-PlasterTemplate | Where-Object -FilterScript {$PSItem.
 Invoke-Plaster -TemplatePath $ModuleTemplatePath -DestinationPath "./Module
 ```
 
+Still need to add Pester, InvokeBuild, and PlatyPS modules. 
+
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
 
