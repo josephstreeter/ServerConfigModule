@@ -1,12 +1,24 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This project is intended to create a PowerShell module for the configuration of new Windows Servers. 
 
 # Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+- Install the Plaster, Pester, and Documentarian modules
+```
+Install-Module -Name 'Plaster', 'Documentarian', 'Pester'
+```
+- Clone the Plaster Template
+```
+git clone https://github.com/Invoke-Automation/IAPlasterProjectTemplate/tree/master
+rm -rf ./IAPlasterProjectTemplate/.git
+mv ./IAPlasterProjectTemplate ./LocalTemplate
+cp ./LocalTemplate ./<template location>
+```
+- Scaffold the module
+```
+$ModuleTemplatePath = Get-PlasterTemplate | Where-Object -FilterScript {$PSItem.Name -eq 'IAPlasterProjectTemplate'} | Select-Object -ExpandProperty TemplatePath
+
+Invoke-Plaster -TemplatePath $ModuleTemplatePath -DestinationPath "./Module
+```
 
 # Build and Test
 TODO: Describe and show how to build your code and run the tests. 
